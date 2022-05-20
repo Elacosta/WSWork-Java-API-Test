@@ -4,6 +4,8 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Leandro Lima
@@ -29,6 +31,4 @@ public class BrandEntity {
     @Column(name = "brand_name")
     private String brandName;
 
-//    @OneToMany(mappedBy = "brandEntity", orphanRemoval = true)
-//    private List<VehicleModelEntity> vehicleModelEntity = new ArrayList<>();
 }

@@ -44,4 +44,6 @@ public class CarEntity {
     @Column(name = "car_color")
     private String carColor;
 
+
+
 }

@@ -4,6 +4,7 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * @author Leandro Lima
@@ -31,7 +32,7 @@ public class VehicleModelEntity {
     @Column(name = "fipe_value")
     private int fipeValue;
 
-//    @ManyToOne
-//    @JoinColumn(name = "brand_fk", nullable = false, foreignKey = @ForeignKey(name = "brand_fk"))
-//    private BrandEntity brandEntity;
+    @ManyToOne
+    @JoinColumn(name = "brand_fk", foreignKey = @ForeignKey(name = "brand_fk"))
+    private BrandEntity brandEntity;
 }

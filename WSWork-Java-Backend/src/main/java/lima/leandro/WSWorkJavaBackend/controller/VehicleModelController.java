@@ -1,5 +1,6 @@
 package lima.leandro.WSWorkJavaBackend.controller;
 
+import lima.leandro.WSWorkJavaBackend.DTO.VehicleModelBrandDTO;
 import lima.leandro.WSWorkJavaBackend.model.VehicleModelEntity;
 import lima.leandro.WSWorkJavaBackend.services.vehicleModelServices.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,9 +55,13 @@ public class VehicleModelController {
      * @return retorna todos os objetos salvos no banco de dados
      */
     @GetMapping()
-    public ResponseEntity<List<VehicleModelEntity>> findAll() {
-        return new ResponseEntity<List<VehicleModelEntity>>(
-                this.vehicleModelFindAllService.findAll(),
+    public ResponseEntity<List<VehicleModelBrandDTO>> findAll() {
+        ArrayList<VehicleModelBrandDTO> vehicleModelBrandDTOArrayList = new ArrayList<>();
+        for (VehicleModelEntity vehicleModelEntity:this.vehicleModelFindAllService.findAll()) {
+            vehicleModelBrandDTOArrayList.add(new VehicleModelBrandDTO(vehicleModelEntity));
+        }
+        return new ResponseEntity<List<VehicleModelBrandDTO>>(
+                vehicleModelBrandDTOArrayList,
                 new HttpHeaders(),
                 HttpStatus.OK
         );
