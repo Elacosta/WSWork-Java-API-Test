@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="WSWork-Java-Backend" target="17" />
+      <module name="WSWork-Java-Backend" target="16" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
