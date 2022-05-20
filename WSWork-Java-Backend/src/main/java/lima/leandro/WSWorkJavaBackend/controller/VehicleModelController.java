@@ -22,7 +22,7 @@ import java.util.Optional;
 public class VehicleModelController {
 
     @Autowired
-    private VehicleModelSafeService vehicleModelSafeService;
+    private VehicleModelSaveService vehicleModelSaveService;
 
     @Autowired
     private VehicleModelFindAllService vehicleModelFindAllService;
@@ -43,7 +43,7 @@ public class VehicleModelController {
     @PostMapping()
     public ResponseEntity<VehicleModelEntity> save(@Valid @RequestBody VehicleModelEntity vehicleModelEntity){
         return new ResponseEntity<VehicleModelEntity>(
-                this.vehicleModelSafeService.save(vehicleModelEntity),
+                this.vehicleModelSaveService.save(vehicleModelEntity),
                 new HttpHeaders(),
                 HttpStatus.CREATED
                 );

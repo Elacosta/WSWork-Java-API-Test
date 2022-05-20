@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * @version 1.0.0 Bumblebee
  */
 @Service
-public class VehicleModelSafeService{
+public class VehicleModelSaveService {
 
     @Autowired
     private VehicleModelRepository vehicleModelRepository;
