@@ -1,6 +1,7 @@
 package lima.leandro.WSWorkJavaBackend.entity;
 
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;

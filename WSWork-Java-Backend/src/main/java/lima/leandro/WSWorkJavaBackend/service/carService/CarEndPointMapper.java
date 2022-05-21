@@ -1,14 +1,22 @@
 package lima.leandro.WSWorkJavaBackend.service.carService;
 
 
-import lima.leandro.WSWorkJavaBackend.dto.CarDTO;
 import lima.leandro.WSWorkJavaBackend.dto.CarEndPointDTO;
 import lima.leandro.WSWorkJavaBackend.entity.BrandEntity;
 import lima.leandro.WSWorkJavaBackend.entity.CarEntity;
 import lima.leandro.WSWorkJavaBackend.entity.VehicleModelEntity;
 
+/**
+ * @author Leandro Lima
+ * @since 21/05/2022
+ * @version 1.0.0 Bumblebee
+ */
 public class CarEndPointMapper {
 
+    /**
+     * @param carEntity recebe um objeto entidade
+     * @return retorna um objeto DTO
+     */
     public static CarEndPointDTO carEndPointToDTO(CarEntity carEntity) {
         CarEndPointDTO carEndPointDTO = new CarEndPointDTO();
         BrandEntity brandEntity = new BrandEntity();
@@ -26,6 +34,10 @@ public class CarEndPointMapper {
         return carEndPointDTO;
     }
 
+    /**
+     * @param carEndPointDTO recebe um objeto DTO
+     * @return retorna um objeto entidade
+     */
     public static CarEntity DTOToCarEndPoint(CarEndPointDTO carEndPointDTO) {
         CarEntity carEntity = new CarEntity();
         VehicleModelEntity vehicleModelEntity = new VehicleModelEntity();

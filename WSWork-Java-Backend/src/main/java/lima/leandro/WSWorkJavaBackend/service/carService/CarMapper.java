@@ -12,6 +12,10 @@ import lima.leandro.WSWorkJavaBackend.entity.VehicleModelEntity;
  */
 public class CarMapper {
 
+    /**
+     * @param carEntity recebe um objeto entidade
+     * @return retorna um objeto DTO
+     */
     public static CarDTO carToDTO (CarEntity carEntity) {
         CarDTO carDTO = new CarDTO();
         carDTO.setCarId(carEntity.getCarId());
@@ -25,6 +29,10 @@ public class CarMapper {
         return carDTO;
     }
 
+    /**
+     * @param carDTO recebe um objeto DTO
+     * @return retorna um objeto entidade
+     */
     public static CarEntity DTOToCar (CarDTO carDTO) {
         CarEntity carEntity = new CarEntity();
         VehicleModelEntity vehicleModelEntity = new VehicleModelEntity();

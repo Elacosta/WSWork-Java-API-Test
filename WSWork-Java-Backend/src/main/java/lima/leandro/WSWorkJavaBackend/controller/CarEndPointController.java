@@ -15,6 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * @author Leandro Lima
+ * @since 21/05/2022
+ * @version 1.0.0 Bumblebee
+ */
 @RestController
 @RequestMapping("/cars/showAll")
 public class CarEndPointController {
@@ -25,6 +30,10 @@ public class CarEndPointController {
     @Autowired
     private CarEndPointFindAllService carEndPointFindAllService;
 
+    /**
+     * @param id recebe o id do objeto para ser pêgo do banco
+     * @return retorna um objeto do banco de dados
+     */
     @GetMapping(path = "/{id}")
     public ResponseEntity<CarEndPointDTO> findById(@PathVariable long id) {
         return new ResponseEntity<CarEndPointDTO>(
@@ -34,6 +43,9 @@ public class CarEndPointController {
         );
     }
 
+    /**
+     * @return retorna uma lista dos objetos no banco de dados
+     */
     @GetMapping
     public ResponseEntity<List<CarEndPointDTO>> findAll() {
         return new ResponseEntity<List<CarEndPointDTO>>(

@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * @author Leandro Lima
+ * @since 21/05/2022
+ * @version 1.0.0 Bumblebee
+ */
 @Service
 public class CarEndPointFindAllService {
 
