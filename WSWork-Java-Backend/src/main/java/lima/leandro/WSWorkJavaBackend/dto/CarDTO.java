@@ -17,5 +17,6 @@ public class CarDTO {
     public int doorNumber;
     public String carColor;
     public long vehicleModelId;
+    public long brandId;
 
 }

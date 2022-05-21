@@ -1,6 +1,7 @@
 package lima.leandro.WSWorkJavaBackend.controller;
 
 import lima.leandro.WSWorkJavaBackend.dto.CarDTO;
+import lima.leandro.WSWorkJavaBackend.dto.CarEndPointDTO;
 import lima.leandro.WSWorkJavaBackend.service.carService.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;

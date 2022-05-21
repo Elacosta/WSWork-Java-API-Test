@@ -48,5 +48,8 @@ public class CarEntity {
     @JoinColumn(name = "vehicle_model_fk", foreignKey = @ForeignKey(name = "vehicle_model_fk"))
     private VehicleModelEntity vehicleModelEntity;
 
+    @ManyToOne
+    @JoinColumn(name = "brand_fk", foreignKey = @ForeignKey(name = "brand_fk"))
+    private BrandEntity brandEntity;
 
 }

@@ -1,6 +1,7 @@
 package lima.leandro.WSWorkJavaBackend.service.carService;
 
 import lima.leandro.WSWorkJavaBackend.dto.CarDTO;
+import lima.leandro.WSWorkJavaBackend.entity.BrandEntity;
 import lima.leandro.WSWorkJavaBackend.entity.CarEntity;
 import lima.leandro.WSWorkJavaBackend.entity.VehicleModelEntity;
 
@@ -20,13 +21,16 @@ public class CarMapper {
         carDTO.setDoorNumber(carEntity.getDoorNumber());
         carDTO.setCarColor(carEntity.getCarColor());
         carDTO.setVehicleModelId(carEntity.getVehicleModelEntity().getVehicleModelId());
+        carDTO.setBrandId(carEntity.getBrandEntity().getBrandId());
         return carDTO;
     }
 
     public static CarEntity DTOToCar (CarDTO carDTO) {
         CarEntity carEntity = new CarEntity();
         VehicleModelEntity vehicleModelEntity = new VehicleModelEntity();
+        BrandEntity brandEntity = new BrandEntity();
         vehicleModelEntity.setVehicleModelId(carDTO.getVehicleModelId());
+        brandEntity.setBrandId(carDTO.getBrandId());
         carEntity.setCarId(carDTO.getCarId());
         carEntity.setTimestampRegister(carDTO.getTimestampRegister());
         carEntity.setCarYear(carDTO.getCarYear());
@@ -34,6 +38,7 @@ public class CarMapper {
         carEntity.setDoorNumber(carDTO.getDoorNumber());
         carEntity.setCarColor(carDTO.getCarColor());
         carEntity.setVehicleModelEntity(vehicleModelEntity);
+        carEntity.setBrandEntity(brandEntity);
         return carEntity;
     }
 }
