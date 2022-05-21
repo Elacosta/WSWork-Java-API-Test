@@ -1,11 +1,12 @@
-package lima.leandro.WSWorkJavaBackend.services.brandServices;
+package lima.leandro.WSWorkJavaBackend.service.brandService;
 
-import lima.leandro.WSWorkJavaBackend.model.BrandEntity;
+import lima.leandro.WSWorkJavaBackend.dto.BrandDTO;
 import lima.leandro.WSWorkJavaBackend.repository.BrandRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Leandro Lima
@@ -21,7 +22,11 @@ public class BrandFindAllService {
     /**
      * @return retorna todos os objetos listados
      */
-    public List<BrandEntity> findAll() {
-        return (List<BrandEntity>) this.brandRepository.findAll();
+
+    public List<BrandDTO> findAll() {
+    return this.brandRepository.findAll()
+            .stream()
+            .map(BrandMapper::brandToDTO)
+            .collect(Collectors.toList());
     }
 }

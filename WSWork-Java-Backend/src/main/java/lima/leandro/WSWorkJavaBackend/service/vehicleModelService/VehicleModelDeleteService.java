@@ -1,4 +1,4 @@
-package lima.leandro.WSWorkJavaBackend.services.vehicleModelServices;
+package lima.leandro.WSWorkJavaBackend.service.vehicleModelService;
 
 import lima.leandro.WSWorkJavaBackend.repository.VehicleModelRepository;
 import org.springframework.beans.factory.annotation.Autowired;

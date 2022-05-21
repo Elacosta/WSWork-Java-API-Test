@@ -1,6 +1,7 @@
-package lima.leandro.WSWorkJavaBackend.services.brandServices;
+package lima.leandro.WSWorkJavaBackend.service.brandService;
 
-import lima.leandro.WSWorkJavaBackend.model.BrandEntity;
+import lima.leandro.WSWorkJavaBackend.dto.BrandDTO;
+import lima.leandro.WSWorkJavaBackend.entity.BrandEntity;
 import lima.leandro.WSWorkJavaBackend.repository.BrandRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,10 @@ public class BrandFindByIdService {
      * @param id recebe o id do objeto a ser procurado
      * @return retorna o objeto requisitado
      */
-    public Optional<BrandEntity> findById(long id) {
-        return this.brandRepository.findById(id);
+    public BrandDTO findById(long id) {
+        Optional<BrandEntity> brandEntity = this.brandRepository.findById(id);
+        return brandEntity
+                .map(BrandMapper::brandToDTO)
+                .orElse(null);
     }
 }

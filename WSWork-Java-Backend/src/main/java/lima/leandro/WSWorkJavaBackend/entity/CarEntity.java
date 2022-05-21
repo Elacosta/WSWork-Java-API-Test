@@ -1,4 +1,4 @@
-package lima.leandro.WSWorkJavaBackend.model;
+package lima.leandro.WSWorkJavaBackend.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -44,6 +44,9 @@ public class CarEntity {
     @Column(name = "car_color")
     private String carColor;
 
+    @ManyToOne
+    @JoinColumn(name = "vehicle_model_fk", foreignKey = @ForeignKey(name = "vehicle_model_fk"))
+    private VehicleModelEntity vehicleModelEntity;
 
 
 }

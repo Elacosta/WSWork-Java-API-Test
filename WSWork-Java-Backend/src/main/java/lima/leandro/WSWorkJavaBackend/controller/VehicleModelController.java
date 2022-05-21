@@ -1,8 +1,7 @@
 package lima.leandro.WSWorkJavaBackend.controller;
 
-import lima.leandro.WSWorkJavaBackend.DTO.VehicleModelBrandDTO;
-import lima.leandro.WSWorkJavaBackend.model.VehicleModelEntity;
-import lima.leandro.WSWorkJavaBackend.services.vehicleModelServices.*;
+import lima.leandro.WSWorkJavaBackend.dto.VehicleModelDTO;
+import lima.leandro.WSWorkJavaBackend.service.vehicleModelService.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -10,9 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * @author Leandro Lima
@@ -39,29 +36,25 @@ public class VehicleModelController {
     private VehicleModelDeleteService vehicleModelDeleteService;
 
     /**
-     * @param vehicleModelEntity recebe um objeto
-     * @return retorna o objeto salvo no banco de dados
+     * @param vehicleModelDTO Recebe um objeto DTO
+     * @return retorna um objeto que foi salvo no banco
      */
     @PostMapping()
-    public ResponseEntity<VehicleModelEntity> save(@Valid @RequestBody VehicleModelEntity vehicleModelEntity){
-        return new ResponseEntity<VehicleModelEntity>(
-                this.vehicleModelSaveService.save(vehicleModelEntity),
+    public ResponseEntity<VehicleModelDTO> save(@Valid @RequestBody VehicleModelDTO vehicleModelDTO){
+        return new ResponseEntity<VehicleModelDTO>(
+                this.vehicleModelSaveService.save(vehicleModelDTO),
                 new HttpHeaders(),
                 HttpStatus.CREATED
-                );
+        );
     }
 
     /**
      * @return retorna todos os objetos salvos no banco de dados
      */
     @GetMapping()
-    public ResponseEntity<List<VehicleModelBrandDTO>> findAll() {
-        ArrayList<VehicleModelBrandDTO> vehicleModelBrandDTOArrayList = new ArrayList<>();
-        for (VehicleModelEntity vehicleModelEntity:this.vehicleModelFindAllService.findAll()) {
-            vehicleModelBrandDTOArrayList.add(new VehicleModelBrandDTO(vehicleModelEntity));
-        }
-        return new ResponseEntity<List<VehicleModelBrandDTO>>(
-                vehicleModelBrandDTOArrayList,
+    public ResponseEntity<List<VehicleModelDTO>> findAll() {
+        return new ResponseEntity<List<VehicleModelDTO>>(
+                this.vehicleModelFindAllService.findAll(),
                 new HttpHeaders(),
                 HttpStatus.OK
         );
@@ -72,8 +65,8 @@ public class VehicleModelController {
      * @return retorna o objeto selecionado do banco de dados
      */
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Optional<VehicleModelEntity>> findById(@Valid @PathVariable("id") long id) {
-        return new ResponseEntity<Optional<VehicleModelEntity>>(
+    public ResponseEntity <VehicleModelDTO> findById(@Valid @PathVariable("id") long id) {
+        return new ResponseEntity<VehicleModelDTO>(
                 this.vehicleModelFindByIdService.findById(id),
                 new HttpHeaders(),
                 HttpStatus.OK
@@ -81,13 +74,13 @@ public class VehicleModelController {
     }
 
     /**
-     * @param vehicleModelEntity recebe um objeto para ser alterado no banco de dados
-     * @return retorna o objeto após a alteraçao no banco de dados
+     * @param vehicleModelDTO recebe um objeto DTO
+     * @return retorna um objeto atualizado do banco
      */
     @PutMapping()
-    public ResponseEntity<VehicleModelEntity> update(@Valid @RequestBody VehicleModelEntity vehicleModelEntity) {
-        return new ResponseEntity<VehicleModelEntity>(
-                this.vehicleModelUpdateService.update(vehicleModelEntity),
+    public ResponseEntity<VehicleModelDTO> update(@Valid @RequestBody VehicleModelDTO vehicleModelDTO) {
+        return new ResponseEntity<VehicleModelDTO>(
+                this.vehicleModelUpdateService.update(vehicleModelDTO),
                 new HttpHeaders(),
                 HttpStatus.OK
         );

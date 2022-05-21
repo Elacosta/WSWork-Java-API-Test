@@ -1,4 +1,4 @@
-package lima.leandro.WSWorkJavaBackend.services.brandServices;
+package lima.leandro.WSWorkJavaBackend.service.brandService;
 
 import lima.leandro.WSWorkJavaBackend.repository.BrandRepository;
 import org.springframework.beans.factory.annotation.Autowired;

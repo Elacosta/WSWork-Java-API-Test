@@ -1,6 +1,6 @@
 package lima.leandro.WSWorkJavaBackend.repository;
 
-import lima.leandro.WSWorkJavaBackend.model.BrandEntity;
+import lima.leandro.WSWorkJavaBackend.entity.BrandEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

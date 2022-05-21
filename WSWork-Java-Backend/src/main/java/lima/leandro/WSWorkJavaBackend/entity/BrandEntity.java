@@ -1,11 +1,9 @@
-package lima.leandro.WSWorkJavaBackend.model;
+package lima.leandro.WSWorkJavaBackend.entity;
 
 import lombok.*;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Leandro Lima

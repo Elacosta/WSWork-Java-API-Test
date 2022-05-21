@@ -1,6 +1,7 @@
-package lima.leandro.WSWorkJavaBackend.services.vehicleModelServices;
+package lima.leandro.WSWorkJavaBackend.service.vehicleModelService;
 
-import lima.leandro.WSWorkJavaBackend.model.VehicleModelEntity;
+import lima.leandro.WSWorkJavaBackend.dto.VehicleModelDTO;
+import lima.leandro.WSWorkJavaBackend.entity.VehicleModelEntity;
 import lima.leandro.WSWorkJavaBackend.repository.VehicleModelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,10 @@ public class VehicleModelFindByIdService {
      * @param id recebe o id para pegar o dado do banco
      * @return retorna o objeto com o id solicitado
      */
-    public Optional<VehicleModelEntity> findById(long id) {
-        return this.vehicleModelRepository.findById(id);
+    public VehicleModelDTO findById(long id) {
+        Optional<VehicleModelEntity> vehicleModelEntity = this.vehicleModelRepository.findById(id);
+        return vehicleModelEntity
+                .map(VehicleModelMapper::vehicleModelToDTO)
+                .orElse(null);
     }
 }

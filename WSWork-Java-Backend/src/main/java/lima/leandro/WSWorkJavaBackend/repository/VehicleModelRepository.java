@@ -1,6 +1,6 @@
 package lima.leandro.WSWorkJavaBackend.repository;
 
-import lima.leandro.WSWorkJavaBackend.model.VehicleModelEntity;
+import lima.leandro.WSWorkJavaBackend.entity.VehicleModelEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
