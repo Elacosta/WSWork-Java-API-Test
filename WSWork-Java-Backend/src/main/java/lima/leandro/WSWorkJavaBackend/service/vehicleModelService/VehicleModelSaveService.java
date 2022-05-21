@@ -22,10 +22,12 @@ public class VehicleModelSaveService {
      * @return retorna um objeto para ser salvo no banco
      */
     public VehicleModelDTO save(VehicleModelDTO vehicleModelDTO) {
-        VehicleModelEntity vehicleModelEntity = this.vehicleModelRepository.save(
-                VehicleModelMapper.DTOToVehicleEntity(vehicleModelDTO)
-        );
-        return VehicleModelMapper.vehicleModelToDTO(vehicleModelEntity);
-
+        if (vehicleModelRepository.existsById(vehicleModelDTO.getBrandId())) {
+            VehicleModelEntity vehicleModelEntity = this.vehicleModelRepository.save(
+                    VehicleModelMapper.DTOToVehicleEntity(vehicleModelDTO)
+            );
+            return VehicleModelMapper.vehicleModelToDTO(vehicleModelEntity);
+        }
+        return null;
     }
 }

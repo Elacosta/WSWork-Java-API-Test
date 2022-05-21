@@ -40,7 +40,7 @@ public class VehicleModelController {
      * @return retorna um objeto que foi salvo no banco
      */
     @PostMapping()
-    public ResponseEntity<VehicleModelDTO> save(@Valid @RequestBody VehicleModelDTO vehicleModelDTO){
+    public ResponseEntity<VehicleModelDTO> save(@RequestBody VehicleModelDTO vehicleModelDTO){
         return new ResponseEntity<VehicleModelDTO>(
                 this.vehicleModelSaveService.save(vehicleModelDTO),
                 new HttpHeaders(),
@@ -65,7 +65,7 @@ public class VehicleModelController {
      * @return retorna o objeto selecionado do banco de dados
      */
     @GetMapping(path = "/{id}")
-    public ResponseEntity <VehicleModelDTO> findById(@Valid @PathVariable("id") long id) {
+    public ResponseEntity <VehicleModelDTO> findById(@PathVariable("id") long id) {
         return new ResponseEntity<VehicleModelDTO>(
                 this.vehicleModelFindByIdService.findById(id),
                 new HttpHeaders(),
@@ -78,7 +78,7 @@ public class VehicleModelController {
      * @return retorna um objeto atualizado do banco
      */
     @PutMapping()
-    public ResponseEntity<VehicleModelDTO> update(@Valid @RequestBody VehicleModelDTO vehicleModelDTO) {
+    public ResponseEntity<VehicleModelDTO> update(@RequestBody VehicleModelDTO vehicleModelDTO) {
         return new ResponseEntity<VehicleModelDTO>(
                 this.vehicleModelUpdateService.update(vehicleModelDTO),
                 new HttpHeaders(),

@@ -13,6 +13,7 @@ public class CarDTO {
     public long carId;
     public int timestampRegister;
     public String typeOfFuel;
+    public int carYear;
     public int doorNumber;
     public String carColor;
     public long vehicleModelId;
