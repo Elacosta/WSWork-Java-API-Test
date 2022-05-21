@@ -19,9 +19,11 @@ Neste projeto foram utilizadas as seguintes libs:
   
   Tento seguir o Clean Code ao máximo, deixando cada função bem clara utilizando de nomes bem sigestivos para facilitar
   a manutenção ou correção. Cada classe criada contém Javadoc, também para facilitar a manutenção do e/ou correção do código.
+  
   Sigo também o padrão de código em inglês, assim como a organização de classes e packages no padrão Java.
   
   Nesta API tento demonstrar tudo o que sei sobre programação OO e também sobre Java, Spring, JPA, Hibernate, mapeamento, entrada e saída de dados. Estou dando 
   meu melhor no projeto para poder dar início a carreira de Dev Backend.
-  Após algumas falhas na API, finalmente ela funciona devidamente. Infelizmente, não implementei uma validação por falta de conhecimento. Pode haver incoerência 
+  
+  Após algumas falhas na API, ela funciona devidamente. Infelizmente, não implementei uma validação por falta de conhecimento. Pode haver incoerência 
   com relação ao banco de dados.
